@@ -1,0 +1,107 @@
+Nodejs---------------------------------------------------
+require() -> built function
+export
+module.export
+Built in  packages:
+require('fs') == search in node directory
+require('./custom') -- search in current dir or external
+http,fs,crypto
+
+fs.writeFileSync //sync
+fs.writeFile//async
+
+readFileSync -- return 
+readFile -- return callback
+appendFile
+------------------------------------------------------------
+blocking and non-blocking I/O
+Nodes works 
+client -> request ->Nodejs Server
+1.Event Queue > all request comes first in queue -- request 1,request so on
+2.Event Loop -> FIFO principal ->pick request from event queue one y one based on priority
+- watch on event queue -> request pickup
+
+3.Event queue -> two type request
+Blocking operations - sync request
+Non-blocking operation - async request
+if non-blocking ops -> event loop -> pick and process the request
+if blocking ops ->go to the thread pool
+thread pool - as a  worker ,pool of thread
+thread  assign
+
+blocking ops -> need a thread/worker > thread pool
+thread pool  -> check the if any work available because limited thread
+after complete job in worker then worker send to thread pool then return to back response
+
+No of worker
+limited thread -4 worker assign to 4 users
+all worker busy to doing task
+user 5 will wait cause of scalability issue
+
+//default thread pool sizee =4 
+//depend on  machine to machine 
+
+we should always write a code non-blocking so that others user can not wait of others 
+
+CPU intensive tasks  -not to used
+
+Url - module
+protocol:hypertext transfer protocol secure
+domain :user friendly name  of ip address
+/ ->root path
+query parameters
+
+--------------------------------------------
+HTTP Request
+
+GET - get the data from server
+POST - whern you want to send and mutate some data in server 
+-- forms  
+PUT --upload file - - files is put on sever
+PATCH - existing entry - update
+DELETE -
+--------------------------------------------
+Express
+nodejs  - httpmodule 
+express uses http module internally
+
+
+nodejs Versioning -- package.json 
+versions: 
+express - 4.18.2
+1st part - 4
+2nd part -18
+3rd part -2
+//3rd part - Minor FIxes(optional)
+Latest 4.18.5
+
+2nd part -Recommended  Bug Fix (security Fix)
+Latest 4.18.5
+
+1st part -> Major release - Breaking Release
+//carat symbol -^^4.21.0
+^4.21.0 -> ^4.21.4 -> ^4.22.0
+^ ->install Recommended and minor automatically
+~ -> install Minor automatically 
+
+4.21.1
+4.21.2
+4.21.3
+4.21.4
+
+---------------------------------------------
+REST FUll API
+1.Server Client Architecture
+both are different entity and should not dependent to each others
+SSR -> Server Side Rendering 
+XML/JSON -> key /value pair - row data
+server ->send data -> json format
+client use json data and render on sever
+If you sure your client is browser then send SSR
+but if your client is cross platform like mobile,oothers.
+---ssr is faster than normal Rendering
+2- Always respect HTTP method
+GET ,POST,PATCH-update user ,PUT,DELETE
+3.Authentication and authorization - for state maintain
+
+-------------------------------------------------------------
